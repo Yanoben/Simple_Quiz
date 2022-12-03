@@ -4,7 +4,7 @@
 {% load static %}
 <div class="container ">
     <h1>Welcome to Quiz</h1>
-
+    {% if request.user.is_authenticated %}
     <form method='post' action=''>
         {% csrf_token %}
         {% for q in questions%}
@@ -44,6 +44,10 @@
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    {% else %}
+    <h2><a class="nav-link" href="{% url 'login' %}">Please Logining to participate in the quiz.</a>
+    </h2>
+    {% endif %}
     {% block script %}
     <script>
 

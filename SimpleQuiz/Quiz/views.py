@@ -14,10 +14,7 @@ def home(request):
         total = 0
         for q in questions:
             total += 1
-            print(request.POST.get(q.question))
-            print(q.ans)
-            print()
-            if q.ans == request.POST.get(q.question):
+            if int(q.ans) == int(request.POST.get(q.question)[-1]):
                 score += 10
                 correct += 1
             else:
