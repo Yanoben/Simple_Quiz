@@ -19,7 +19,7 @@ def home(request):
                 correct += 1
             else:
                 wrong += 1
-        percent = score/(total*10) * 100
+        percent = round((score/(total*10) * 100), 1)
         context = {
             'score': score,
             'correct': correct,
